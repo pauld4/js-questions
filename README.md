@@ -3,12 +3,37 @@
 //===Core JavaScript Basics===//
 
 ===Variables & Scope===
+Note that I only capitalize the key words such as VAR, LET, etc to help make these words stick out to the reader. When I write these in code, they are all lowercase.
 
-What’s the difference between var, let, and const?
+What’s the difference between VAR, LET, and CONST?
+
+VAR
+-Function scoped, not block scoped
+-Initialized as 'undefined'
+-Can be redeclared and reassigned
+-Common to cause bugs due to unexpected scope behavior
+LET
+-Block scoped
+-Not initialized
+-Can be reassigned, but not redclared in the same scope
+-Safer than Var
+CONST
+-Block scoped
+-Must be assinged a value when initialized
+-Cannot be redeclared or reassigned, but can still be mutated if used for an object or array
+-Preferably used for variables that shouldn't change value
 
 What is block scope vs function scope?
 
+A variable has block scope if it is accessible within the brackets {} it was declared in. Similar with function scope, a variable is only accessible within the function it is declared. For example, a LET or CONST variable in an IF statement is only accessible within that IF statement. Whereas a VAR variable is accessible inside that IF statement and in the function that it is in.
+
 When should you use const?
+
+CONST is helpful to let other developers know that the value of the CONST variable should not be changed. Such as a variable, 'const my_name = "Paul"'. A variable such as 'let counter = 0' should use LET because the counter would be changing often. LET is also used in FOR LOOPS, such as 'for(let i = 0; i < num_max; i++)' or 'for(let u of users)' where 'users' is an array of users. VAR should almost never be used, but is commonly used in older JavaScript code.
+
+What is hoisting behavior?
+
+Hoisting behavior is the way that JavaScript moves variable and function declarations to the top of their scope during compilation. Hoisting VAR variables incorrectly still leads to the code running, which can lead to unforseen bugs. The system won't throw an immediate error since VAR variables are automatically initialized to 'undefined'. It is best practice to declare variables at the top of their scope, and the reassign them below that.
 
 ===Data Types===
 
