@@ -39,15 +39,33 @@ Hoisting behavior is the way that JavaScript moves variable and function declara
 
 What are the primitive data types in JavaScript?
 
+JavaScript has seven primitive data types. Primitives are immutable values that are stored directly in memory. The seven types are string("Paul"), numbers such as integers(42) and floating point(30.99), bigint(9007199254740991n), boolean(true/false), undefined, null, and symbol(Symbol("Id")).
+
+Difference between mutable and immutable values
+
+Mutable values can be modified in memory after they are created, while immutable values cannot be changed once created. Objects and arrays are examples of mutable values, and immutable values are the primitive types mentioned above. When reassigning an immutable value, JavaScript just creates a new value, and the old value becomes unreferenced and will eventually be eligible for garbage collection. An example is 'let num = 25' and then later 'num = 50'. The value 25 is still in memory, but num just points to a new value, 50. The value 25 is no longer referenced and will be eligible for garbage collection.
+
+When does garbage collection occur in JavaScript?
+
+Garbage collection occurs automatically when a value is no longer reachable by any reference in the program. The JavaScript engine decides when to reclaim that memory.
+
 What’s the difference between null and undefined?
 
+Both null and undefined represent the absence of a value, but they are used differently. Undefined is the default value a variable is assigned if no other value has been assigned to it. Null is a value that the developer assigns to a variable. Writing 'typeof null' returns an object value. 'Null == undefined' returns true, but 'Null === undefined' returns false. 
+
 What does 'typeof' return for arrays or null?
+
+Writing 'typeof [1,2,3]' and 'typeof null' returns 'object'. 'typeof' should not be used for arrays, and instead use 'Array.isArray([1,2,3])' which will return 'true'. Since 'null == undefined' returns true, we have to use 'variable === null' to check if something is null, whereas 'variable == null' will check if it is undefined. Same with 'typeof variable === undefined' to check if it is 'undefined'. Writing 'variable == null' will check if it is either null or undefined.
 
 ===Equality===
 
 What’s the difference between == and ===?
 
+'==' is loose equality, and '===' is strict equality. '===' will check for same type AND value. '5 === "5"' will return 'false', while '5 == "5"' will return 'true', just like 'null == undefined' will return 'true' and 'null === undefined' will return 'false'. Loose equality allows for type coercion, so JavaScript will try to convert values before comparing them. Examples are '0 == false' is 'true', but '0 === false' will be 'false'. 
+
 Why is '0 == false' true but '0 === false' false?
+
+0 is a number type, and false is a boolean type. Using '===' will return false because the types do not match. When using '==', type coercion occurs and 'false' is converted to a number, 0, so '0 == false' returns 'true'.
 
 //===Functions & Execution==///
 
